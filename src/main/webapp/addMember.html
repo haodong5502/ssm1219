@@ -1,0 +1,61 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>会员管理系统</title>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+
+
+</head>
+<body>
+<h2>会员管理系统</h2>
+<h4>新增会员</h4>
+<div>
+    <form id="form1">
+        <p>
+           姓名：<input type="text" name="mname" id="mname"/>
+        </p>
+
+        <p>
+            联系电话：<input type="text" name="mphone" id="mphone"/>
+        </p>
+
+        <p>
+            会员卡号：<input type="text" name="mcardNo" id="mcardNo"/>
+        </p>
+        <p>
+          会员级别：<select name="mlevel" id="mlevel">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </p>
+
+    </form>
+
+<input type="button" id="btn7" name="btn1" value="提交"/>
+</div>
+<script>
+    $(function () {
+        $("#btn7").click(function () {
+            console.log($("#form1").serialize())
+            $.ajax({
+                url:"members",
+                type:"post",
+                data:$("#form1").serialize(),
+                dataType:"json",
+                success:function (data) {
+                    console.log(data)
+                    if(data.flw==1){
+                        location.href='index.html'
+                    }else {
+                        alert("添加失败")
+                    }
+                }
+            })
+        })
+    })
+
+</script>
+</body>
+</html>
