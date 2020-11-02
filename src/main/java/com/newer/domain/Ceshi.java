@@ -10,4 +10,5 @@ public class Ceshi {
     private String name;
     private String age;
     private Integer ages;
+    private String a;
 }
