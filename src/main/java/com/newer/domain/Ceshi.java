@@ -8,4 +8,5 @@ package com.newer.domain;
  */
 public class Ceshi {
     private String name;
+    private String age;
 }
